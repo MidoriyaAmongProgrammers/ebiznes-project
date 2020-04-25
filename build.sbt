@@ -1,8 +1,8 @@
-name := "untitled9"
+name := "ebiznes"
 
 version := "1.0"
 
-lazy val `untitled9` = (project in file(".")).enablePlugins(PlayScala)
+lazy val `ebiznes` = (project in file(".")).enablePlugins(PlayScala)
 
 resolvers += "scalaz-bintray" at "https://dl.bintray.com/scalaz/releases"
 
@@ -16,6 +16,3 @@ libraryDependencies ++= Seq(
   "com.typesafe.play" %% "play-slick-evolutions" % "4.0.0",
   "org.xerial"        %  "sqlite-jdbc" % "3.30.1"
 )
-
-unmanagedResourceDirectories in Test <+=  baseDirectory ( _ /"target/web/public/test" )
-

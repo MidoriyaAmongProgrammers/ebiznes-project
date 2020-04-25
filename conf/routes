@@ -4,69 +4,74 @@
 # ~~~~
 
 # An example controller showing a sample home page
-GET     /products                   controllers.products.ProductsController.getProducts
-POST    /products                   controllers.products.ProductsController.createProduct
-PUT     /products/:productId        controllers.products.ProductsController.updateProduct(productId: String)
-DELETE  /products/:productId        controllers.products.ProductsController.deleteProduct(productId: String)
+GET     /products                   controllers.products.ProductController.getProducts
+GET     /products/:id               controllers.products.ProductController.getProductById(id: Int)
+POST    /products                   controllers.products.ProductController.createProduct
+PUT     /products                   controllers.products.ProductController.updateProduct
+DELETE  /products/:id               controllers.products.ProductController.deleteProduct(id: Int)
 
 
-GET     /reviews                    controllers.products.ReviewsController.getReviews
-POST    /reviews                    controllers.products.ReviewsController.createReview
-PUT     /reviews/:reviewId          controllers.products.ReviewsController.updateReview(reviewId: String)
-DELETE  /reviews/:reviewId          controllers.products.ReviewsController.deleteReview(reviewId: String)
+GET     /reviews                    controllers.products.ReviewController.getReviews
+GET     /reviews/:id                controllers.products.ReviewController.getReviewById(id: Int)
+POST    /reviews                    controllers.products.ReviewController.createReview
+PUT     /reviews                    controllers.products.ReviewController.updateReview
+DELETE  /reviews/:id                controllers.products.ReviewController.deleteReview(id: Int)
 
-GET     /users                      controllers.users.UsersController.getUsers
-POST    /users                      controllers.users.UsersController.createUser
-PUT     /users/:userId              controllers.users.UsersController.updateUser(userId: String)
-DELETE  /users/:userId              controllers.users.UsersController.deleteUser(userId: String)
-
-
-GET     /basket                     controllers.basket.BasketController.getBasket
-POST    /basket                     controllers.basket.BasketController.createBasket
-PUT     /basket/:basketId           controllers.basket.BasketController.updateBasket(basketId: String)
-DELETE  /basket/:basketId           controllers.basket.BasketController.deleteBasket(basketId: String)
+GET     /users                      controllers.users.UserController.getUsers
+GET     /users/:id                  controllers.users.UserController.getUserById(id: Int)
+POST    /users                      controllers.users.UserController.createUser
+PUT     /users                      controllers.users.UserController.updateUser
+DELETE  /users/:id                  controllers.users.UserController.deleteUser(id: Int)
 
 
-GET     /categories                 controllers.categories.CategoriesController.getCategories
-POST    /categories                 controllers.categories.CategoriesController.createCategory
-PUT     /categories/:categoryId     controllers.categories.CategoriesController.updateCategory(categoryId: String)
-DELETE  /categories/:categoryId     controllers.categories.CategoriesController.deleteCategory(categoryId: String)
+GET     /baskets                     controllers.basket.BasketController.getBaskets
+GET     /baskets/:id                 controllers.basket.BasketController.getBasketById(id: Int)
+POST    /baskets                     controllers.basket.BasketController.createBasket
+PUT     /baskets                     controllers.basket.BasketController.updateBasket
+DELETE  /baskets/:id                 controllers.basket.BasketController.deleteBasket(id: Int)
 
 
-GET     /subcategories                 controllers.categories.SubCategoriesController.getSubCategories
-POST    /subcategories                 controllers.categories.SubCategoriesController.createSubCategory
-PUT     /subcategories/:subcategoryId     controllers.categories.SubCategoriesController.updateSubCategory(subcategoryId: String)
-DELETE  /subcategories/:subcategoryId     controllers.categories.SubCategoriesController.deleteSubCategory(subcategoryId: String)
+GET     /categories                 controllers.categories.CategoryController.getCategories
+GET     /categories/:id             controllers.categories.CategoryController.getCategoryById(id: Int)
+POST    /categories                 controllers.categories.CategoryController.createCategory
+PUT     /categories                 controllers.categories.CategoryController.updateCategory
+DELETE  /categories/:id             controllers.categories.CategoryController.deleteCategory(id: Int)
+
+
+GET     /subcategories                 controllers.categories.SubCategoryController.getSubCategories
+GET     /subcategories/:id             controllers.categories.SubCategoryController.getSubCategoryById(id: Int)
+POST    /subcategories                 controllers.categories.SubCategoryController.createSubCategory
+PUT     /subcategories                 controllers.categories.SubCategoryController.updateSubCategory
+DELETE  /subcategories/:id             controllers.categories.SubCategoryController.deleteSubCategory(id: Int)
 
 
 
-GET     /orders                 controllers.orders.OrdersController.getOrders
-POST    /orders                 controllers.orders.OrdersController.createOrder
-PUT     /orders/:orderId     controllers.orders.OrdersController.updateOrder(orderId: String)
-DELETE  /orders/:orderId     controllers.orders.OrdersController.deleteOrder(orderId: String)
+GET     /orders                  controllers.orders.OrderController.getOrders
+GET     /orders/:id                  controllers.orders.OrderController.getOrderById(id: Int)
+POST    /orders                  controllers.orders.OrderController.createOrder
+PUT     /orders                  controllers.orders.OrderController.updateOrder
+DELETE  /orders/:id         controllers.orders.OrderController.deleteOrder(id: Int)
 
 
-GET     /coupons                 controllers.orders.CouponsController.getCoupons
-POST    /coupons                 controllers.orders.CouponsController.createCoupon
-PUT     /coupons/:couponId     controllers.orders.CouponsController.updateCoupon(couponId: String)
-DELETE  /coupons/:couponId     controllers.orders.CouponsController.deleteCoupon(couponId: String)
+GET     /coupons                 controllers.orders.CouponController.getCoupons
+GET     /coupons/:id              controllers.orders.CouponController.getCouponsById(id: Int)
+POST    /coupons                 controllers.orders.CouponController.createCoupon
+PUT     /coupons                 controllers.orders.CouponController.updateCoupon
+DELETE  /coupons/:id            controllers.orders.CouponController.deleteCoupon(id: Int)
 
 
-GET     /shipments                 controllers.orders.ShipmentsController.getShipments
-POST    /shipments                 controllers.orders.ShipmentsController.createShipment
-PUT     /shipments/:shipmentId     controllers.orders.ShipmentsController.updateShipment(shipmentId: String)
-DELETE  /shipments/:shipmentId     controllers.orders.ShipmentsController.deleteShipment(shipmentId: String)
+GET     /shipments                 controllers.orders.ShipmentController.getShipments
+GET     /shipments/:id                 controllers.orders.ShipmentController.getShipmentById(id: Int)
+POST    /shipments                 controllers.orders.ShipmentController.createShipment
+PUT     /shipments                   controllers.orders.ShipmentController.updateShipment
+DELETE  /shipments/:id     controllers.orders.ShipmentController.deleteShipment(id: Int)
 
-GET     /payments                 controllers.orders.PaymentsController.getPayments
-POST    /payments                 controllers.orders.PaymentsController.createPayment
-PUT     /payments/:paymentId     controllers.orders.PaymentsController.updatePayment(paymentId: String)
-DELETE  /payments/:paymentId     controllers.orders.PaymentsController.deletePayment(paymentId: String)
+GET     /payments                 controllers.orders.PaymentController.getPayments
+GET     /payments/:id             controllers.orders.PaymentController.getPaymentById(id: Int)
+POST    /payments                 controllers.orders.PaymentController.createPayment
+PUT     /payments                 controllers.orders.PaymentController.updatePayment
+DELETE  /payments/:id             controllers.orders.PaymentController.deletePayment(id: Int)
 
-
-# An example controller showing how to use dependency injection
-GET     /count                      controllers.CountController.count
-# An example controller showing how to write asynchronous code
-GET     /message                    controllers.AsyncController.message
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)
