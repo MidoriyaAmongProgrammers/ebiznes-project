@@ -24,7 +24,7 @@ CREATE TABLE "coupon" (
 
 CREATE TABLE "payment" (
  "id" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
- "value" FLOAT NOT NULL,
+ "value" INTEGER NOT NULL,
  "paid" BIT NOT NULL
 );
 

@@ -1,0 +1,12 @@
+@import models.Shipment
+@(shipment: Shipment)
+
+<a href="@controllers.orders.routes.ShipmentController.getShipments()">Back to shipments</a><br><br>
+
+<b>Shipment</b>
+
+<li><b>Date: </b>@shipment.date</li>
+<li><b>Address: </b>@shipment.address</li>
+
+
+

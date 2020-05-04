@@ -1,0 +1,29 @@
+@import controllers.basket.UpdateBasketForm
+@(basket: Form[UpdateBasketForm], users: Seq[User])(implicit request: MessagesRequestHeader, flash: Flash)
+
+@import helper._
+
+@flash.get("success").getOrElse("")
+<a href="@controllers.basket.routes.BasketController.getBaskets()">Back to baskets</a><br><br>
+
+<b>Basket update</b>
+
+@form(controllers.basket.routes.BasketController.updateBasketHandle()) {
+    @helper.CSRF.formField
+    <input name="id" id="id" value="@basket("id").value" type="hidden" />
+
+    <b>User: </b>
+    <select name="user" id="user">
+    @for(user <- users){
+        @if(user.id.toString==basket("user").value.getOrElse(0)) {
+            <option value="@user.id" selected>@user.username</option>
+        }else{
+            <option value="@user.id">@user.username</option>
+        }
+    }
+    </select>
+
+    <div class="buttons">
+        <input type="submit" value="Update Basket"/>
+    </div>
+}

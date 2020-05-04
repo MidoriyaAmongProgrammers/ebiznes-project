@@ -17,7 +17,7 @@ class PaymentRepository @Inject() (dbConfigProvider: DatabaseConfigProvider, cat
 
     def id = column[Int]("id", O.PrimaryKey, O.AutoInc)
 
-    def value = column[Float]("value")
+    def value = column[Int]("value")
 
     def paid = column[Boolean]("paid")
 
@@ -28,7 +28,7 @@ class PaymentRepository @Inject() (dbConfigProvider: DatabaseConfigProvider, cat
 
   private val payment = TableQuery[PaymentTable]
 
-  def create(value: Float, paid: Boolean): Future[Payment] = db.run {
+  def create(value: Int, paid: Boolean): Future[Payment] = db.run {
     (payment.map(p => (p.value, p.paid))
       returning payment.map(_.id)
       into {case ((value,paid),id) => Payment(id,value, paid)}
@@ -45,6 +45,13 @@ class PaymentRepository @Inject() (dbConfigProvider: DatabaseConfigProvider, cat
 
   def getById(id: Int): Future[Payment] = db.run {
     payment.filter(_.id === id).result.head
+  }
+
+  def delete(id: Int): Future[Unit] = db.run(payment.filter(_.id === id).delete).map(_ => ())
+
+  def update(id: Int, newPayment: Payment): Future[Unit] = {
+    val paymentToUpdate: Payment = newPayment.copy(id)
+    db.run(payment.filter(_.id === id).update(paymentToUpdate)).map(_ => ())
   }
 
 }

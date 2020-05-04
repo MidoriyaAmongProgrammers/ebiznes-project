@@ -1,0 +1,33 @@
+@import controllers.categories.UpdateSubCategoryForm
+@(subcategory: Form[UpdateSubCategoryForm], categories : Seq[Category])(implicit request: MessagesRequestHeader, flash: Flash)
+
+@import helper._
+
+@flash.get("success").getOrElse("")
+<a href="@controllers.categories.routes.SubCategoryController.getSubCategories()">Back to subcategories</a><br><br>
+
+<b>Subcategory update</b>
+
+@form(controllers.categories.routes.SubCategoryController.updateSubCategoryHandle()) {
+    @helper.CSRF.formField
+    <input name="id" id="id" value="@subcategory("id").value" type="hidden" />
+    @inputText(subcategory("name"))
+    @inputText(subcategory("description"))
+
+
+    <b>Category: </b>
+    <select name="category" id="category">
+    @for(category <- categories){
+        @if(category.id.toString==subcategory("category").value.getOrElse(0)) {
+            <option value="@category.id" selected>@category.name</option>
+        }else{
+            <option value="@category.id">@category.name</option>
+        }
+
+    }
+    </select>
+
+    <div class="buttons">
+        <input type="submit" value="Update Subcategory"/>
+    </div>
+}

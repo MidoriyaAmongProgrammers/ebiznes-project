@@ -59,4 +59,11 @@ class SubCategoryRepository @Inject() (dbConfigProvider: DatabaseConfigProvider,
     subcategory.filter(_.id === id).result.head
   }
 
+  def delete(id: Int): Future[Unit] = db.run(subcategory.filter(_.id === id).delete).map(_ => ())
+
+  def update(id: Int, newSubcategory: SubCategory): Future[Unit] = {
+    val subcategoryToUpdate: SubCategory = newSubcategory.copy(id)
+    db.run(subcategory.filter(_.id === id).update(subcategoryToUpdate)).map(_ => ())
+  }
+
 }

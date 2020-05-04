@@ -1,0 +1,16 @@
+@import models.Review
+@(reviews: Seq[Review])
+
+<a href="@controllers.products.routes.ReviewController.createReview()">Create Review</a><br><br>
+
+<b>Reviews</b><br />
+
+@for(review <- reviews) {
+    <b>Review: </b>
+    <li><b>User: </b>@review.user</li>
+    <li><b>Product: </b>@review.product</li>
+    <li><b>Content: </b>@review.content</li>
+    <li><b>Rating: </b>@review.rating</li>
+    <a href="@controllers.products.routes.ReviewController.updateReview(review.id)">Edit</a>
+    <a href="@controllers.products.routes.ReviewController.deleteReview(review.id)">Delete</a><br /><br />
+}

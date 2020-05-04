@@ -61,4 +61,11 @@ class ReviewRepository @Inject() (dbConfigProvider: DatabaseConfigProvider,val u
   def getById(id: Int): Future[Review] = db.run {
     review.filter(_.id === id).result.head
   }
+
+  def delete(id: Int): Future[Unit] = db.run(review.filter(_.id === id).delete).map(_ => ())
+
+  def update(id: Int, newReview: Review): Future[Unit] = {
+    val reviewToUpdate: Review = newReview.copy(id)
+    db.run(review.filter(_.id === id).update(reviewToUpdate)).map(_ => ())
+  }
 }

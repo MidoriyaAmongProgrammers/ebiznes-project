@@ -1,0 +1,14 @@
+@import models.User
+@(users: Seq[User])
+<a href="@controllers.users.routes.UserController.createUser()">Create User</a><br><br>
+
+<b>Users</b><br />
+
+@for(user <- users) {
+    <b>User: </b>
+    <li><b>Username: </b>@user.username</li>
+    <li><b>Password: </b>@user.password</li>
+    <li><b>Email: </b>@user.email</li>
+    <a href="@controllers.users.routes.UserController.updateUser(user.id)">Edit</a>
+    <a href="@controllers.users.routes.UserController.deleteUser(user.id)">Delete</a><br /><br />
+}

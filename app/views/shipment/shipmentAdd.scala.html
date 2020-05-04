@@ -1,0 +1,20 @@
+@import controllers.orders.CreateShipmentForm
+@(shipment: Form[CreateShipmentForm])(implicit request: MessagesRequestHeader, flash: Flash)
+
+@import helper._
+
+@flash.get("success").getOrElse("")
+<a href="@controllers.orders.routes.ShipmentController.getShipments()">Back to shipments</a><br><br>
+
+<b>Shipment create</b>
+
+@form(controllers.orders.routes.ShipmentController.createShipmentHandle()) {
+    @helper.CSRF.formField
+    @inputText(shipment("date"))
+    @inputText(shipment("address"))
+
+
+    <div class="buttons">
+        <input type="submit" value="Add Product"/>
+    </div>
+}

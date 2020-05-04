@@ -50,4 +50,11 @@ class BasketRepository @Inject() (dbConfigProvider: DatabaseConfigProvider,val u
     basket.filter(_.user === user).result.head
   }
 
+  def delete(id: Int): Future[Unit] = db.run(basket.filter(_.id === id).delete).map(_ => ())
+
+  def update(id: Int, newBasket: Basket): Future[Unit] = {
+    val basketToUpdate: Basket = newBasket.copy(id)
+    db.run(basket.filter(_.id === id).update(basketToUpdate)).map(_ => ())
+  }
+
 }
