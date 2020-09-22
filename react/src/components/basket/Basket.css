@@ -1,0 +1,21 @@
+.basket-product-details{
+    color: black;
+    text-align: left;
+}
+
+.quantity{
+    font-size: medium;
+}
+
+.summary{
+    padding: 20px;
+    padding-top:5px;
+}
+
+.basket-submit{
+    background-color: #FF8000;
+}
+
+.summary-button:hover{
+    text-decoration: none;
+}
