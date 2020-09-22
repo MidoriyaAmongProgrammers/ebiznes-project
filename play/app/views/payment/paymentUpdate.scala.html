@@ -1,0 +1,22 @@
+@import controllers.orders.UpdatePaymentForm
+@(payment: Form[UpdatePaymentForm])(implicit request: MessagesRequestHeader, flash: Flash)
+
+@import helper._
+
+@flash.get("success").getOrElse("")
+<a href="@controllers.orders.routes.PaymentController.getPayments()">Back to payments</a><br><br>
+
+<b>Payment update</b>
+
+
+@form(controllers.orders.routes.PaymentController.updatePaymentHandle()) {
+    @helper.CSRF.formField
+    <input name="id" id="id" value="@payment("id").value" type="hidden" />
+    @inputText(payment("value"))
+    @inputText(payment("paid"))
+    @inputText(payment("method"))
+
+    <div class="buttons">
+        <input type="submit" value="Update Product"/>
+    </div>
+}

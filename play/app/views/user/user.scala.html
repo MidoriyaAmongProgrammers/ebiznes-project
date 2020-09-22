@@ -1,0 +1,9 @@
+@import models.User
+@(user: User)
+<a href="@controllers.users.routes.UserController.getUsers()">Back to users</a><br><br>
+
+<b>User</b>
+
+<li><b>First Name: </b>@user.firstName</li>
+<li><b>Last Name: </b>@user.lastName</li>
+<li><b>Email: </b>@user.email</li>
