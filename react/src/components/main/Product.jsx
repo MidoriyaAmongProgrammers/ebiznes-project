@@ -28,7 +28,7 @@ function Product(props){
         return (Math.round(number * 100) / 100)
     }
 
-    function RenderAddToBasketButton(props){
+    function RenderAddToBasketButton(){
         const user = props.context.userCtx;
         if(user?.token){
            return( <div><button type="button" onClick={addProductToBasket} class="btn btn-primary">Add to cart</button>

@@ -1,6 +1,5 @@
 import React from 'react';
 import Product from "./Product.jsx"
-import axios from 'axios';
 
 class Products extends React.Component{
     

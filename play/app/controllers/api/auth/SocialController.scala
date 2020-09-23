@@ -56,7 +56,7 @@ class SocialController @Inject()(cc: MessagesControllerComponents,
                     result
                   }
                 } else {
-                  val errorCode="XD403" // Email is bounded to other provider
+                  val errorCode="403" // Email is bounded to other provider
                   Future.successful(Redirect(s"http://localhost:3000/auth/failure?errorCode=$errorCode"))
                 }
               }
@@ -67,7 +67,7 @@ class SocialController @Inject()(cc: MessagesControllerComponents,
       case None => Future.successful(Status(BAD_REQUEST)(Json.obj("error" -> s"No '$provider' provider")))
     }).recover {
       case _: ProviderException => {
-        val errorCode = "XD500" // Unknown error
+        val errorCode = "500" // Unknown error
         Redirect(s"http://localhost:3000/auth/failure?errorCode=$errorCode")
       }
     }

@@ -36,8 +36,8 @@ class BasketController @Inject()(basketRepository: BasketRepository,
 
   def updateBasket:Action[JsValue] = Action(parse.json) { implicit request =>
     val newBasket = request.body.as[Basket]
-    val savedBasket = basketRepository.update(newBasket.id, newBasket);
-    Ok("sa")
+    basketRepository.update(newBasket.id, newBasket);
+    Ok("Updated")
   }
 
   def deleteBasket(id: Int) = Action { implicit request =>

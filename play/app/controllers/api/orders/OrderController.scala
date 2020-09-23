@@ -53,7 +53,7 @@ class OrderController @Inject()(orderRepository: OrderRepository,
 
   def updateOrder:Action[JsValue] = Action(parse.json) { implicit request: Request[JsValue] =>
     val newOrder = request.body.as[Order]
-    val savedOrder = orderRepository.update(newOrder.id, newOrder)
+    orderRepository.update(newOrder.id, newOrder)
     Ok("")
   }
 

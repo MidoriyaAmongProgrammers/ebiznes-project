@@ -43,8 +43,8 @@ class UserController @Inject()(userDao: UserDao, cc: MessagesControllerComponent
 
   def updateUser = Action(parse.json) { implicit request =>
     val newUser = request.body.as[User]
-    val savedUser = userDao.update(newUser)
-    Ok("jasjsa")
+    userDao.update(newUser)
+    Ok("Updated")
   }
 
   def deleteUser(id: String) = Action {

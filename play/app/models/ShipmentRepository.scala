@@ -30,7 +30,7 @@ class ShipmentRepository @Inject() (dbConfigProvider: DatabaseConfigProvider,val
 
     def provider = column[String]("provider")
 
-    def address_fk = foreignKey("address_fk",address, shipmentAddress)(_.id)
+    def addressFk = foreignKey("address_fk",address, shipmentAddress)(_.id)
 
     def * = (id, date, address, firstName, lastName, provider) <> ((Shipment.apply _).tupled, Shipment.unapply)
 

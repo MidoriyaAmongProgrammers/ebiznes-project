@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import {Link, useHistory} from "react-router-dom";
+import React, { useEffect } from 'react';
+import {useHistory} from "react-router-dom";
 import {UserContext} from "../../context/userContext/UserContext";
 
 function LogOutComponent(props){

@@ -55,7 +55,7 @@ class ProductController @Inject()(productRepository: ProductRepository,
 
   def updateProduct = Action(parse.json) { implicit request =>
     val newProduct = request.body.as[Product]
-    val savedProduct = productRepository.update(newProduct.id, newProduct)
+    productRepository.update(newProduct.id, newProduct)
     Ok("ashhas")
   }
 

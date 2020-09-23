@@ -8,7 +8,7 @@
     @flash.get("success").getOrElse("")
 <a href="@controllers.products.routes.ReviewController.getReviews()">Back to reviews</a><br><br>
 
-<b>Review create</b>
+<strong>Review create</strong>
 
 
     @form(controllers.products.routes.ReviewController.createReviewHandle()) {
@@ -16,14 +16,14 @@
         @inputText(review("content"))
         @inputText(review("rating"))
 
-        <b>User: </b>
+        <strong>User: </strong>
         <select name="user" id="user">
         @for(user <- users){
             <option value="@user.id">@user.email</option>
         }
         </select><br/>
 
-        <b>Product: </b>
+        <strong>Product: </strong>
         <select name="product" id="product">
         @for(product <- products){
             <option value="@product.id">@product.name</option>

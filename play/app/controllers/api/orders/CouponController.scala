@@ -41,7 +41,7 @@ class CouponController @Inject()(couponRepository: CouponRepository, cc: Message
 
   def updateCoupon = Action(parse.json) { implicit request: Request[JsValue] =>
     val newCoupon = request.body.as[Coupon]
-    val savedCoupon = couponRepository.update(newCoupon.id, newCoupon)
+    couponRepository.update(newCoupon.id, newCoupon)
     Ok("")
   }
 

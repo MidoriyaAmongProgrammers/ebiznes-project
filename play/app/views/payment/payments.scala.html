@@ -2,13 +2,15 @@
 @(payments: Seq[Payment])
 <a href="@controllers.orders.routes.PaymentController.createPayment()">Create Payment</a><br><br>
 
-<b>Payments</b><br />
+<strong>Payments</strong><br />
 
 @for(payment <- payments) {
-    <b>Payment: </b>
-    <li><b>Value: </b>@payment.value</li>
-    <li><b>Paid: </b>@payment.paid</li>
-    <li><b>Method: </b>@payment.method</li>
+    <strong>Payment: </strong>
+    <ul>
+    <li><strong>Value: </strong>@payment.value</li>
+    <li><strongb>Paid: </strongb>@payment.paid</li>
+    <li><strong>Method: </strong>@payment.method</li>
+    </ul>
     <a href="@controllers.orders.routes.PaymentController.updatePayment(payment.id)">Edit</a>
     <a href="@controllers.orders.routes.PaymentController.deletePayment(payment.id)">Delete</a><br /><br />
 }

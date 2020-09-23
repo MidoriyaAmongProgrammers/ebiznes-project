@@ -45,7 +45,7 @@ class SubCategoryController @Inject()(subCategoryRepository: SubCategoryReposito
 
   def updateSubCategory:Action[JsValue] = Action(parse.json) { implicit request: Request[JsValue] =>
     val newSubCat = request.body.as[SubCategory]
-    val savedSubCat = subCategoryRepository.update(newSubCat.id, newSubCat)
+    subCategoryRepository.update(newSubCat.id, newSubCat)
     Ok("sa")
   }
 

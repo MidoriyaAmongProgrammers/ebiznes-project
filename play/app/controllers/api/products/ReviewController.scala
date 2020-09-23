@@ -51,7 +51,7 @@ class ReviewController @Inject()(reviewRepository: ReviewRepository,
 
   def updateReview = Action(parse.json) { implicit request =>
     val newReview = request.body.as[Review]
-    val savedReview = reviewRepository.update(newReview.id, newReview)
+    reviewRepository.update(newReview.id, newReview)
     Ok("hashsa")
   }
 

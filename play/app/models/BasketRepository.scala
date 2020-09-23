@@ -19,7 +19,7 @@ class BasketRepository @Inject() (dbConfigProvider: DatabaseConfigProvider,val u
 
     def user = column[String]("user")
 
-    def user_fk = foreignKey("user_fk",user, userQuery)(_.id)
+    def userFk = foreignKey("user_fk",user, userQuery)(_.id)
 
     def * = (id, user) <> ((Basket.apply _).tupled, Basket.unapply)
 

@@ -36,7 +36,7 @@ class ShipmentController @Inject()(shipmentRepository: ShipmentRepository, cc: M
 
   def updateShipment = Action(parse.json) { implicit request =>
     val newShipment = request.body.as[Shipment]
-    val savedShipment = shipmentRepository.update(newShipment.id, newShipment)
+    shipmentRepository.update(newShipment.id, newShipment)
     Ok("saas")
   }
 

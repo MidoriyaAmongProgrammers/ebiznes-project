@@ -35,7 +35,7 @@ class PaymentController @Inject()(paymentRepository: PaymentRepository, cc: Mess
 
   def updatePayment = Action(parse.json) { implicit request =>
     val newPayment = request.body.as[Payment]
-    val savedPayment = paymentRepository.update(newPayment.id, newPayment)
+    paymentRepository.update(newPayment.id, newPayment)
     Ok("")
   }
 

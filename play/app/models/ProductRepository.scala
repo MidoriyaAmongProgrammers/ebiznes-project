@@ -28,7 +28,7 @@ class ProductRepository @Inject() (dbConfigProvider: DatabaseConfigProvider,val 
     def img = column[String]("img")
 
 
-    def subcategory_fk = foreignKey("subcat_fk",subcategory, subcat)(_.id)
+    def subcategoryFk = foreignKey("subcat_fk",subcategory, subcat)(_.id)
 
 
     def * = (id, name, price, description, subcategory, img) <> ((Product.apply _).tupled, Product.unapply)

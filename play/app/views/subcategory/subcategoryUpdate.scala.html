@@ -6,7 +6,7 @@
 @flash.get("success").getOrElse("")
 <a href="@controllers.categories.routes.SubCategoryController.getSubCategories()">Back to subcategories</a><br><br>
 
-<b>Subcategory update</b>
+<strong>Subcategory update</strong>
 
 @form(controllers.categories.routes.SubCategoryController.updateSubCategoryHandle()) {
     @helper.CSRF.formField
@@ -15,7 +15,7 @@
     @inputText(subcategory("description"))
 
 
-    <b>Category: </b>
+    <strong>Category: </strong>
     <select name="category" id="category">
     @for(category <- categories){
         @if(category.id.toString==subcategory("category").value.getOrElse(0)) {

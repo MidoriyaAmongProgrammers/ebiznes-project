@@ -3,10 +3,10 @@
 
 <a href="@controllers.categories.routes.CategoryController.createCategory()">Create Category</a><br><br>
 
-<b>Categories</b><br />
+<strong>Categories</strong><br />
 @for(category <- categories) {
-    <b>Category: </b>
-    <li><b>Name: </b>@category.name</li>
+    <strong>Category: </strong>
+    <ul><li><b>Name: </b>@category.name</li></ul>
     <a href="@controllers.categories.routes.CategoryController.updateCategory(category.id)">Edit</a>
     <a href="@controllers.categories.routes.CategoryController.deleteCategory(category.id)">Delete</a><br /><br />
 }

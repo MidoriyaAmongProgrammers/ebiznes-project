@@ -26,9 +26,9 @@ class ReviewRepository @Inject() (dbConfigProvider: DatabaseConfigProvider,val u
 
     def rating = column[Int]("rating")
 
-    def user_fk = foreignKey("user_fk",user, userQuery)(_.id)
+    def userFk = foreignKey("user_fk",user, userQuery)(_.id)
 
-    def product_fk = foreignKey("product_fk",product, productQuery)(_.id)
+    def productFk = foreignKey("product_fk",product, productQuery)(_.id)
 
     def * = (id, user, product, content, rating) <> ((Review.apply _).tupled, Review.unapply)
 

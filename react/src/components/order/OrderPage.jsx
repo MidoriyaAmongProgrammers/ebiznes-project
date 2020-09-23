@@ -3,9 +3,8 @@ import ShipmentAddress from "./ShipmentAddress"
 import ShipmentProvider from "./ShipmentProvider"
 import Payment from "./Payment"
 import "./Order.css";
-import BasketDetails from "../basket/BasketDetails"
-import axios from 'axios';
 import {UserContext} from "../../context/userContext/UserContext";
+import axios from 'axios';
 
 
 

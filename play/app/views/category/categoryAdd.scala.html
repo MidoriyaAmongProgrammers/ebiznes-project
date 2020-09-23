@@ -6,7 +6,7 @@
 @flash.get("success").getOrElse("")
 <a href="@controllers.categories.routes.CategoryController.getCategories()">Back to categories</a><br><br>
 
-<b>Category create</b>
+<strong>Category create</strong>
 
 @form(controllers.categories.routes.CategoryController.createCategoryHandle()) {
     @helper.CSRF.formField

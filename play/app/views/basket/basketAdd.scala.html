@@ -6,12 +6,12 @@
 @flash.get("success").getOrElse("")
 <a href="@controllers.basket.routes.BasketController.getBaskets()">Back to baskets</a><br><br>
 
-<b>Basket create</b>
+<strong>Basket create</strong>
 
 @form(controllers.basket.routes.BasketController.createBasketHandle()) {
     @helper.CSRF.formField
 
-    <b>User: </b>
+    <strong>User: </strong>
     <select name="user" id="user">
     @for(user <- users){
         <option value="@user.id">@user.email</option>

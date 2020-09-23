@@ -6,7 +6,7 @@
 @flash.get("success").getOrElse("")
 <a href="@controllers.orders.routes.CouponController.getCoupons()">Back to coupons</a><br><br>
 
-<b>Coupon create</b>
+<strong>Coupon create</strong>
 
 @form(controllers.orders.routes.CouponController.createCouponHandle()) {
     @helper.CSRF.formField

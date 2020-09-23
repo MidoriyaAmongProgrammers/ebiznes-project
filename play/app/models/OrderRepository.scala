@@ -31,11 +31,11 @@ class OrderRepository @Inject() (dbConfigProvider: DatabaseConfigProvider,val sh
 
     def user = column[String]("user")
 
-    def shipment_fk = foreignKey("shipment_fk",shipment, shipmentQuery)(_.id)
+    def shipmentFk = foreignKey("shipment_fk",shipment, shipmentQuery)(_.id)
 
-    def payment_fk = foreignKey("payment_fk",payment, paymentQuery)(_.id)
+    def paymentFk = foreignKey("payment_fk",payment, paymentQuery)(_.id)
 
-    def user_fk = foreignKey("user_fk",user, userQuery)(_.id)
+    def userFk = foreignKey("user_fk",user, userQuery)(_.id)
 
     def * = (id, date, coupon, shipment, payment, user) <> ((Order.apply _).tupled, Order.unapply)
   }

@@ -6,13 +6,13 @@
 @flash.get("success").getOrElse("")
 <a href="@controllers.basket.routes.BasketController.getBaskets()">Back to baskets</a><br><br>
 
-<b>Basket update</b>
+<strong>Basket update</strong>
 
 @form(controllers.basket.routes.BasketController.updateBasketHandle()) {
     @helper.CSRF.formField
     <input name="id" id="id" value="@basket("id").value" type="hidden" />
 
-    <b>User: </b>
+    <strong>User: </strong>
     <select name="user" id="user">
     @for(user <- users){
         @if(user.id.toString==basket("user").value.getOrElse(0)) {

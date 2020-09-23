@@ -10,35 +10,35 @@
 @flash.get("success").getOrElse("")
 <a href="@controllers.orders.routes.OrderController.getOrders()">Back to orders</a><br><br>
 
-<b>Order create</b>
+<strong>Order create</strong>
 
 @form(controllers.orders.routes.OrderController.createOrderHandle()) {
     @helper.CSRF.formField
     @inputText(order("date"))
 
 
-    <b>Coupon: </b>
+    <strong>Coupon: </strong>
     <select name="coupon" id="coupon">
     @for(coupon <- coupons){
         <option value="@coupon.id">@coupon.name</option>
     }
     </select><br/>
 
-    <b>Shipment: </b>
+    <strong>Shipment: </strong>
     <select name="shipment" id="shipment">
     @for(shipment <- shipments){
         <option value="@shipment.id">@shipment.id</option>
     }
     </select><br/>
 
-    <b>Payment: </b>
+    <strong>Payment: </strong>
     <select name="payment" id="payment">
     @for(payment <- payments){
         <option value="@payment.id">@payment.id</option>
     }
     </select><br/>
 
-    <b>User: </b>
+    <strong>User: </strong>
     <select name="user" id="user">
     @for(user <- users){
         <option value="@user.id">@user.email</option>

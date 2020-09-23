@@ -2,13 +2,15 @@
 @(coupons: Seq[Coupon])
 <a href="@controllers.orders.routes.CouponController.createCoupon()">Create Coupon</a><br><br>
 
-<b>Coupons</b><br />
+<strong>Coupons</strong><br />
 
 @for(coupon <- coupons) {
-    <b>Coupon: </b>
+    <strong>Coupon: </strong>
+    <ul>
     <li><b>Name: </b>@coupon.name</li>
     <li><b>Code: </b>@coupon.code</li>
     <li><b>Value: </b>@coupon.value</li>
+    </ul>
     <a href="@controllers.orders.routes.CouponController.updateCoupon(coupon.id)">Edit</a>
     <a href="@controllers.orders.routes.CouponController.deleteCoupon(coupon.id)">Delete</a><br /><br />
 }

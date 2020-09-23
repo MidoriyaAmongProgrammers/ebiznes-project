@@ -24,9 +24,9 @@ class BasketProductRepository @Inject() (dbConfigProvider: DatabaseConfigProvide
 
     def quantity = column[Int]("quantity")
 
-    def user_fk = foreignKey("user_fk",user, userQuery)(_.id)
+    def userFk = foreignKey("user_fk",user, userQuery)(_.id)
 
-    def product_fk = foreignKey("product_fk",product, productQuery)(_.id)
+    def productFk = foreignKey("product_fk",product, productQuery)(_.id)
 
     def * = (id, user, product, quantity) <> ((UserProduct.apply _).tupled, UserProduct.unapply)
 

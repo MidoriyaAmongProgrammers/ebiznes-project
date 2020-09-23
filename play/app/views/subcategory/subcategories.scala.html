@@ -3,13 +3,15 @@
 
 <a href="@controllers.categories.routes.SubCategoryController.createSubCategory()">Create Subcategory</a><br><br>
 
-<b>Subcategories</b><br />
+<strong>Subcategories</strong><br />
 
 @for(subcategory <- subcategories) {
-    <b>Subcategory: </b>
-    <li><b>Name: </b>@subcategory.name</li>
-    <li><b>Description: </b>@subcategory.description</li>
-    <li><b>Category: </b>@subcategory.category</li>
+    <strong>Subcategory: </strong>
+    <ul>
+    <li><strong>Name: </strong>@subcategory.name</li>
+    <li><strong>Description: </strong>@subcategory.description</li>
+    <li><strong>Category: </strong>@subcategory.category</li>
+    </ul>
     <a href="@controllers.categories.routes.SubCategoryController.updateSubCategory(subcategory.id)">Edit</a>
     <a href="@controllers.categories.routes.SubCategoryController.deleteSubCategory(subcategory.id)">Delete</a><br /><br />
 }

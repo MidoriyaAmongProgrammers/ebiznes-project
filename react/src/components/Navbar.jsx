@@ -5,7 +5,7 @@ import {UserContext} from "../context/userContext/UserContext";
 
 function Navbar(props){
 
-    function LogInOutNavbarOption(props){
+    function LogInOutNavbarOption(){
         const user = props.context.userCtx;
         if(user?.token){
             return <Link to="/logout"><li>Wyloguj</li></Link>

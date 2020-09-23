@@ -3,15 +3,17 @@
 
 <a href="@controllers.orders.routes.ShipmentController.createShipment()">Create Shipment</a><br><br>
 
-<b>Shipments</b><br />
+<strong>Shipments</strong><br />
 
 @for(shipment <- shipments) {
-    <b>Shipment: </b>
-    <li><b>Date: </b>@shipment.date</li>
-    <li><b>Address: </b>@shipment.address</li>
-    <li><b>FirstName: </b>@shipment.firstName</li>
-    <li><b>Last Name: </b>@shipment.lastName</li>
-    <li><b>Provider: </b>@shipment.provider</li>
+    <strong>Shipment: </strong>
+    <ul>
+    <li><strong>Date: </strong>@shipment.date</li>
+    <li><strong>Address: </strong>@shipment.address</li>
+    <li><strong>FirstName: </strong>@shipment.firstName</li>
+    <li><strong>Last Name: </strong>@shipment.lastName</li>
+    <li><strong>Provider: </strong>@shipment.provider</li>
+    </ul>
     <a href="@controllers.orders.routes.ShipmentController.updateShipment(shipment.id)">Edit</a>
     <a href="@controllers.orders.routes.ShipmentController.deleteShipment(shipment.id)">Delete</a><br /><br />
 }

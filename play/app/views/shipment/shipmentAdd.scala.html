@@ -6,7 +6,7 @@
 @flash.get("success").getOrElse("")
 <a href="@controllers.orders.routes.ShipmentController.getShipments()">Back to shipments</a><br><br>
 
-<b>Shipment create</b>
+<strong>Shipment create</strong>
 
 @form(controllers.orders.routes.ShipmentController.createShipmentHandle()) {
     @helper.CSRF.formField

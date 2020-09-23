@@ -28,15 +28,8 @@ class SignUpController @Inject()(cc: MessagesControllerComponents,
   extends MessagesAbstractController(cc)
     with I18nSupport {
 
-  val emptyStringMsg = "cannot be empty"
 
   def submit() = silhouette.UnsecuredAction(parse.json).async { implicit request =>
-    implicit val signUpRead = (
-      (JsPath \ "email").read[String].filter(JsonValidationError(emptyStringMsg))(x => x != null && !x.isEmpty) and
-        (JsPath \ "firstName").read[String].filter(JsonValidationError(emptyStringMsg))(x => x != null && !x.isEmpty) and
-        (JsPath \ "lastName").read[String].filter(JsonValidationError(emptyStringMsg))(x => x != null && !x.isEmpty) and
-        (JsPath \ "password").read[String].filter(JsonValidationError(emptyStringMsg))(x => x != null && !x.isEmpty)
-      ) (SignUpRequest.apply _)
 
     val validation = request.body.validate[SignUpRequest](signUpRead)
     validation match {
@@ -73,6 +66,16 @@ class SignUpController @Inject()(cc: MessagesControllerComponents,
       }
     }
   }
+
+  implicit val signUpRead = (
+    (JsPath \ "email").read[String].filter(JsonValidationError(emptyStringMsg))(x => x != null && !x.isEmpty) and
+      (JsPath \ "firstName").read[String].filter(JsonValidationError(emptyStringMsg))(x => x != null && !x.isEmpty) and
+      (JsPath \ "lastName").read[String].filter(JsonValidationError(emptyStringMsg))(x => x != null && !x.isEmpty) and
+      (JsPath \ "password").read[String].filter(JsonValidationError(emptyStringMsg))(x => x != null && !x.isEmpty)
+    ) (SignUpRequest.apply _)
+
+  val emptyStringMsg = "cannot be empty"
+
 
   case class SignUpRequest(email: String, firstName: String, lastName: String, password: String)
 

@@ -6,7 +6,7 @@
 @flash.get("success").getOrElse("")
 <a href="@controllers.products.routes.ProductController.getProducts()">Back to products</a><br><br>
 
-<b>Product create</b>
+<strong>Product create</strong>
 
 @form(controllers.products.routes.ProductController.createProductHandle()) {
     @helper.CSRF.formField
@@ -15,7 +15,7 @@
     @inputText(product("description"))
     @inputText(product("img"))
 
-    <b>Subcategory: </b>
+    <strong>Subcategory: </strong>
     <select name="subcategory" id="subcategory">
     @for(subcategory <- subcategories){
         <option value="@subcategory.id">@subcategory.name</option>

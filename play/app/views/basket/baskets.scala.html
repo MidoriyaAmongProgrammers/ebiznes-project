@@ -3,10 +3,10 @@
 
 <a href="@controllers.basket.routes.BasketController.createBasket()">Create Basket</a><br><br>
 
-<b>Baskets</b><br />
+<strong>Baskets</strong><br />
 @for(basket <- baskets) {
-    <b>Basket: </b>
-    <li><b>User: </b>@basket.user</li>
+    <strong>Basket: </strong>
+    <ul><li><strong>User: </strong>@basket.user</li></ul>
     <a href="@controllers.basket.routes.BasketController.updateBasket(basket.id)">Edit</a>
     <a href="@controllers.basket.routes.BasketController.deleteBasket(basket.id)">Delete</a><br /><br />
 }

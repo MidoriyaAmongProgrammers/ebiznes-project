@@ -35,7 +35,7 @@ class CategoryController @Inject()(categoryRepository: CategoryRepository, cc: M
 
   def updateCategory:Action[JsValue] = Action(parse.json) { implicit request: Request[JsValue] =>
     val newCategory = request.body.as[Category]
-    val savedCategory = categoryRepository.update(newCategory.id, newCategory)
+    categoryRepository.update(newCategory.id, newCategory)
     Ok("")
   }
 

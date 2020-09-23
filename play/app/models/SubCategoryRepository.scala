@@ -23,7 +23,7 @@ class SubCategoryRepository @Inject() (dbConfigProvider: DatabaseConfigProvider,
 
     def category = column[Int]("category")
 
-    def category_fk = foreignKey("category_fk",category, cat)(_.id)
+    def categoryFk = foreignKey("category_fk",category, cat)(_.id)
 
     def * = (id, name, description, category) <> ((SubCategory.apply _).tupled, SubCategory.unapply)
 

@@ -2,8 +2,10 @@
 @(payment: Payment)
 <a href="@controllers.orders.routes.PaymentController.getPayments()">Back to payments</a><br><br>
 
-<b>Payment</b>
+<strong>Payment</strong>
 
-<li><b>Value: </b>@payment.value</li>
-<li><b>Paid: </b>@payment.paid</li>
-<li><b>Mehod: </b>@payment.method</li>
+<ul>
+<li><strong>Value: </strong>@payment.value</li>
+<li><strong>Paid: </strong>@payment.paid</li>
+<li><strong>Mehod: </strong>@payment.method</li>
+</ul>

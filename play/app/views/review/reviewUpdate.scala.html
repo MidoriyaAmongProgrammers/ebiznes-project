@@ -8,7 +8,7 @@
 @flash.get("success").getOrElse("")
 <a href="@controllers.products.routes.ReviewController.getReviews()">Back to reviews</a><br><br>
 
-<b>Review update</b>
+<strong>Review update</strong>
 
 
 @form(controllers.products.routes.ReviewController.updateReviewHandle()) {
@@ -17,7 +17,7 @@
     @inputText(review("content"))
     @inputText(review("rating"))
 
-    <b>User: </b>
+    <strong>User: </strong>
     <select name="user" id="user">
     @for(user <- users){
         @if(user.id.toString==review("user").value.getOrElse(0)) {
@@ -27,7 +27,7 @@
     }
     </select><br/>
 
-    <b>Product: </b>
+    <strong>Product: </strong>
     <select name="product" id="product">
     @for(product <- products){
         @if(product.id.toString==review("product").value.getOrElse(0)) {

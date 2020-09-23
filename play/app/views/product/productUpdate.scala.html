@@ -6,7 +6,7 @@
 @flash.get("success").getOrElse("")
 <a href="@controllers.products.routes.ProductController.getProducts()">Back to products</a><br><br>
 
-<b>Product update</b>
+<strong>Product update</strong>
 
 
 @form(controllers.products.routes.ProductController.updateProductHandle()) {
@@ -18,7 +18,7 @@
     @inputText(product("img"))
 
 
-    <b>Subcategory: </b>
+    <strong>Subcategory: </strong>
     <select name="subcategory" id="subcategory">
     @for(subcategory <- subcategories){
         @if(subcategory.id.toString==product("subcategory").value.getOrElse(0)) {
