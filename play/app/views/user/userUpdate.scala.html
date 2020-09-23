@@ -6,7 +6,7 @@
 @flash.get("success").getOrElse("")
 <a href="@controllers.users.routes.UserController.getUsers()">Back to users</a><br><br>
 
-<b>User update</b>
+<strong>User update</strong>
 
 @form(controllers.users.routes.UserController.updateUserHandle()) {
     @helper.CSRF.formField

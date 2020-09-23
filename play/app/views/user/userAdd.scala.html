@@ -6,7 +6,7 @@
 @flash.get("success").getOrElse("")
 <a href="@controllers.users.routes.UserController.getUsers()">Back to users</a><br><br>
 
-<b>User create</b>
+<strong>User create</strong>
 
 @form(controllers.users.routes.UserController.createUserHandle()) {
     @helper.CSRF.formField

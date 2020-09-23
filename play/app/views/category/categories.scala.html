@@ -6,7 +6,7 @@
 <strong>Categories</strong><br />
 @for(category <- categories) {
     <strong>Category: </strong>
-    <ul><li><b>Name: </b>@category.name</li></ul>
+    <ul><li><strong>Name: </strong>@category.name</li></ul>
     <a href="@controllers.categories.routes.CategoryController.updateCategory(category.id)">Edit</a>
     <a href="@controllers.categories.routes.CategoryController.deleteCategory(category.id)">Delete</a><br /><br />
 }
