@@ -1,0 +1,16 @@
+@import models.Coupon
+@(coupons: Seq[Coupon])
+<a href="@controllers.orders.routes.CouponController.createCoupon()">Create Coupon</a><br><br>
+
+<strong>Coupons</strong><br />
+
+@for(coupon <- coupons) {
+    <strong>Coupon: </strong>
+    <ul>
+    <li><strong>Name: </strong>@coupon.name</li>
+    <li><strong>Code: </strong>@coupon.code</li>
+    <li><strong>Value: </strong>@coupon.value</li>
+    </ul>
+    <a href="@controllers.orders.routes.CouponController.updateCoupon(coupon.id)">Edit</a>
+    <a href="@controllers.orders.routes.CouponController.deleteCoupon(coupon.id)">Delete</a><br /><br />
+}

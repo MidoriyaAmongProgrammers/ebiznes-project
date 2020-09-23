@@ -1,0 +1,12 @@
+@import models.Order
+@(order: Order)
+
+<a href="@controllers.orders.routes.OrderController.getOrders()">Back to orders</a><br><br>
+
+<strong>Order</strong>
+<ul>
+<li><strong>Date: </strong>@order.date</li>
+<li><strong>Coupon: </strong>@order.coupon</li>
+<li><strong>Shipment: </strong>@order.shipment</li>
+<li><strong>Payment: </strong>@order.payment</li>
+</ul>

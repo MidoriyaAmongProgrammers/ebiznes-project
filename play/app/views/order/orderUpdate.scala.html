@@ -1,0 +1,68 @@
+@import controllers.orders.UpdateOrderForm
+@(order: Form[UpdateOrderForm],
+        coupons: Seq[Coupon],
+        shipments: Seq[Shipment],
+        payments: Seq[Payment],
+        users: Seq[User])(implicit request: MessagesRequestHeader, flash: Flash)
+
+@import helper._
+
+@flash.get("success").getOrElse("")
+<a href="@controllers.orders.routes.OrderController.getOrders()">Back to orders</a><br><br>
+
+<strong>Order update</strong>
+
+
+@form(controllers.orders.routes.OrderController.updateOrderHandle()) {
+    @helper.CSRF.formField
+    <input name="id" id="id" value="@order("id").value" type="hidden" />
+    @inputText(order("date"))
+
+    <strong>Coupon: </strong>
+    <select name="coupon" id="coupon">
+    @for(coupon <- coupons){
+        @if(coupon.id.toString==order("coupon").value.getOrElse(0)) {
+            <option value="@coupon.id" selected>@coupon.name</option>
+        } else {
+            <option value="@coupon.id">@coupon.name</option>
+        }
+    }
+    </select><br/>
+
+    <strong>Shipment: </strong>
+    <select name="shipment" id="shipment">
+    @for(shipment <- shipments){
+        @if(shipment.id.toString==order("shipment").value.getOrElse(0)) {
+            <option value="@shipment.id" selected>@shipment.id</option>
+        } else {
+            <option value="@shipment.id">@shipment.id</option>
+        }
+    }
+    </select><br/>
+
+    <strong>Payment: </strong>
+    <select name="payment" id="payment">
+    @for(payment <- payments){
+        @if(payment.id.toString==order("payment").value.getOrElse(0)) {
+            <option value="@payment.id" selected>@payment.id</option>
+        } else {
+            <option value="@payment.id">@payment.id</option>
+        }
+    }
+    </select><br/>
+
+    <strong>User: </strong>
+    <select name="user" id="user">
+    @for(user <- users){
+        @if(user.id.toString==order("user").value.getOrElse(0)) {
+            <option value="@user.id" selected>@user.email</option>
+        } else {
+            <option value="@user.id">@user.email</option>
+        }
+    }
+    </select><br/>
+
+    <div class="buttons">
+        <input type="submit" value="Update Order"/>
+    </div>
+}

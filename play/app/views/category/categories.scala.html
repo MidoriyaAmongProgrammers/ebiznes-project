@@ -1,0 +1,12 @@
+@import models.Category
+@(categories: Seq[Category])
+
+<a href="@controllers.categories.routes.CategoryController.createCategory()">Create Category</a><br><br>
+
+<strong>Categories</strong><br />
+@for(category <- categories) {
+    <strong>Category: </strong>
+    <ul><li><strong>Name: </strong>@category.name</li></ul>
+    <a href="@controllers.categories.routes.CategoryController.updateCategory(category.id)">Edit</a>
+    <a href="@controllers.categories.routes.CategoryController.deleteCategory(category.id)">Delete</a><br /><br />
+}

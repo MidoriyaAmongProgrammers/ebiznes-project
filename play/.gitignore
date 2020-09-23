@@ -5,5 +5,4 @@
 *.ipr
 
 target/
-logs/
 /.idea/

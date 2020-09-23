@@ -1,8 +1,0 @@
-@import models.Payment
-@(payment: Payment)
-<a href="@controllers.orders.routes.PaymentController.getPayments()">Back to payments</a><br><br>
-
-<b>Payment</b>
-
-<li><b>Value: </b>@payment.value</li>
-<li><b>Paid: </b>@payment.paid</li>

@@ -1,0 +1,7 @@
+@import models.Basket
+@(basket: Basket)
+
+<a href="@controllers.basket.routes.BasketController.getBaskets()">Back to baskets</a><br><br>
+
+<strong>Basket</strong>
+<ul><li><strong>User: </strong>@basket.user</li></ul>

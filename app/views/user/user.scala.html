@@ -1,9 +1,0 @@
-@import models.User
-@(user: User)
-<a href="@controllers.users.routes.UserController.getUsers()">Back to users</a><br><br>
-
-<b>User</b>
-
-<li><b>Username: </b>@user.username</li>
-<li><b>Password: </b>@user.password</li>
-<li><b>Email: </b>@user.email</li>

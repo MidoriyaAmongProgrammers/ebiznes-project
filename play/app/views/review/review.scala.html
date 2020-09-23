@@ -1,0 +1,14 @@
+@import models.Review
+@(review: Review)
+<a href="@controllers.products.routes.ReviewController.getReviews()">Back to reviews</a><br><br>
+
+<strong>Review</strong>
+<ul>
+<li><strong>User: </strong>@review.user</li>
+<li><strong>Product: </strong>@review.product</li>
+<li><strong>Content: </strong>@review.content</li>
+<li><strong>Rating: </strong>@review.rating</li>
+</ul>
+
+
+

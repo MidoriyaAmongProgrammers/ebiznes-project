@@ -1,0 +1,10 @@
+nav {
+    list-style: none;
+    /* float: none; */
+}
+
+li {
+    display: inline-block;
+    margin: 10px;
+    color: whitesmoke;
+}

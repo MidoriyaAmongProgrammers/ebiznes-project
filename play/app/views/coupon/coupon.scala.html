@@ -1,0 +1,10 @@
+@import models.Coupon
+@(coupon: Coupon)
+<a href="@controllers.orders.routes.CouponController.getCoupons()">Back to coupons</a><br><br>
+
+<strong>Coupon</strong>
+<ul>
+<li><strong>Name: </strong>@coupon.name</li>
+<li><strong>Code: </strong>@coupon.code</li>
+<li><strong>Value: </strong>@coupon.value</li>
+</ul>

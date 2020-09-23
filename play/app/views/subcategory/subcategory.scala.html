@@ -1,0 +1,11 @@
+@import models.SubCategory
+@(subcategory: SubCategory)
+
+<a href="@controllers.categories.routes.SubCategoryController.getSubCategories()">Back to subcategories</a><br><br>
+
+<strong>Subcategory</strong>
+<ul>
+<li><strong>Name: </strong>@subcategory.name</li>
+<li><strong>Description: </strong>@subcategory.description</li>
+<li><strong>Category: </strong>@subcategory.category</li>
+</ul>

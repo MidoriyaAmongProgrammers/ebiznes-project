@@ -1,0 +1,17 @@
+@import models.SubCategory
+@(subcategories: Seq[SubCategory])
+
+<a href="@controllers.categories.routes.SubCategoryController.createSubCategory()">Create Subcategory</a><br><br>
+
+<strong>Subcategories</strong><br />
+
+@for(subcategory <- subcategories) {
+    <strong>Subcategory: </strong>
+    <ul>
+    <li><strong>Name: </strong>@subcategory.name</li>
+    <li><strong>Description: </strong>@subcategory.description</li>
+    <li><strong>Category: </strong>@subcategory.category</li>
+    </ul>
+    <a href="@controllers.categories.routes.SubCategoryController.updateSubCategory(subcategory.id)">Edit</a>
+    <a href="@controllers.categories.routes.SubCategoryController.deleteSubCategory(subcategory.id)">Delete</a><br /><br />
+}
