@@ -5,10 +5,12 @@ import Payment from "./Payment"
 import "./Order.css";
 import {UserContext} from "../../context/userContext/UserContext";
 import axios from 'axios';
+import {withRouter} from "react-router-dom";
 
 
 
 class OrderPage extends React.Component{
+
 
     onChangePayment = (e) => {
         console.log(e.target.name)
@@ -77,6 +79,8 @@ class OrderPage extends React.Component{
         let userId;
         let token = this.props.context.userCtx.token
         console.log(this.state)
+        let history = this.props.history
+        history.push("/")
          axios.post(`http://localhost:9000/api/payments`, {
             value: this.props.location.state.value,
             paid: true,
@@ -135,6 +139,13 @@ class OrderPage extends React.Component{
       }) 
     })
 })
+
+axios.delete(`http://localhost:9000/api/basketproducts/user`, {
+                headers: { 'X-Auth-Token': token }
+        }).then(res => {
+            console.log("Response basket:")
+            console.log(res)
+        })
     }
 
     constructor(props) {
@@ -196,4 +207,4 @@ const withContext = (Component) => {
  }
 
 
-export default withContext(OrderPage)
+export default withRouter(withContext(OrderPage))

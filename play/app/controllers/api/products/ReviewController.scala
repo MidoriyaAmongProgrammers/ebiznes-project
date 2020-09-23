@@ -34,8 +34,16 @@ class ReviewController @Inject()(reviewRepository: ReviewRepository,
     ))
   }
 
-  def getReviewByUserAndProduct(id: Int) : Action[AnyContent] = Action.async {
-    implicit request => reviewRepository.getById(id).map(review => Ok(
+  def getReviewsByProduct(id: Int) : Action[AnyContent] = Action.async {
+    implicit request => reviewRepository.getByProduct(id).map(review => Ok(
+      Json.toJson(review)
+    ))
+  }
+
+  def getReviewByUserAndProduct(id: Int) : Action[AnyContent] = silhouette.SecuredAction.async {
+    implicit request =>
+      val user = request.identity
+      reviewRepository.getByProductAndUser(id, user.id).map(review => Ok(
       Json.toJson(review)
     ))
   }

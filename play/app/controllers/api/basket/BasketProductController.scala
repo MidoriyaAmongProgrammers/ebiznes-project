@@ -67,6 +67,12 @@ class BasketProductController @Inject()(basketProductRepository: BasketProductRe
     Future(Ok)
   }
 
+  def deleteBasketProductsByUser = silhouette.SecuredAction { implicit request =>
+    val user = request.identity
+    basketProductRepository.deleteByUser(user.id)
+    Ok("Deleted")
+  }
+
   def deleteBasketProduct(id: Int) = Action { implicit request =>
     basketProductRepository.delete(id)
     Ok("Deleted")

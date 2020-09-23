@@ -58,6 +58,10 @@ class ReviewRepository @Inject() (dbConfigProvider: DatabaseConfigProvider,val u
     review.filter(_.product === product).result
   }
 
+  def getByProductAndUser(productId: Int, userId: String): Future[Seq[Review]] = db.run {
+    review.filter(x => x.user === userId && x.product === productId).result
+  }
+
   def getById(id: Int): Future[Review] = db.run {
     review.filter(_.id === id).result.head
   }

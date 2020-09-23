@@ -6,7 +6,7 @@ import {UserContext} from "../../context/userContext/UserContext";
 class ProductPage extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { product: {}, reviews: [], rating: 5, review: "" };
+    this.state = { product: {}, reviews: [], rating: 5, review: "",  loading: true, isReviewAlreadyAdded: false};
     this.init = this.init.bind(this);
     this.changeRating = this.changeRating.bind(this);
     this.onReviewChange = this.onReviewChange.bind(this);
@@ -16,6 +16,7 @@ class ProductPage extends React.Component {
   }
 
   init() {
+    const user = this.props.context.userCtx;
     axios
       .get(`http://localhost:9000/api/products/${this.props.match.params.id}`)
       .then((res) => {
@@ -28,9 +29,19 @@ class ProductPage extends React.Component {
         });
       });
 
-    axios.get(`http://localhost:9000/api/reviews`).then((res) => {
+    axios.get(`http://localhost:9000/api/reviews/product/${this.props.match.params.id}`).then((res) => {
       this.setState({ reviews: res.data });
     });
+
+    axios
+      .get(`http://localhost:9000/api/reviews/user/${this.props.match.params.id}`, 
+      { headers: { 'X-Auth-Token': user.token }})
+      .then((res) => {
+        console.log(res)
+        let isAdded = res.data && res.data.length > 0
+        
+          return this.setState({isReviewAlreadyAdded : isAdded}) 
+      });
   }
 
   onChangeShipment = (e) => {
@@ -69,42 +80,50 @@ class ProductPage extends React.Component {
     const user = this.props.context.userCtx;
     if(!user?.token){
       
-      return <h1>Opinia została już dodana</h1>
+      return <h1>Zaloguj się by dodać opinię</h1>
     } else{
-     return(
-    <div class="col-6">
-    <h1>Ocena</h1>
-    <div class="form-group">
-      <form>
-        <StarRatings
-          rating={this.state.rating}
-          starRatedColor="gold"
-          name="rating"
-          changeRating={this.changeRating}
-          starDimension="20px"
-        />
-        <br />
-        <label for="exampleFormControlTextarea1">
-          Example textarea
-        </label>
-        <textarea
-          class="form-control"
-          id="exampleFormControlTextarea1"
-          rows="3"
-          onChange={this.onReviewChange}
-        ></textarea>
-        <br />
-        <button
-          onClick={this.addReview}
-          type="button"
-          class="btn btn-secondary"
-        >
-          Add review
-        </button>
-      </form>
-    </div>
-  </div>)
+      if(this.state.isReviewAlreadyAdded){
+      return <h1>Opinia została dodana</h1>
+      } else {
+        return this.renderAddReviewArea()
+      }
     }
+  }
+
+  renderAddReviewArea(){
+    return(
+      <div class="col-6">
+      <h1>Ocena</h1>
+      <div class="form-group">
+        <form>
+          <StarRatings
+            rating={this.state.rating}
+            starRatedColor="gold"
+            name="rating"
+            changeRating={this.changeRating}
+            starDimension="20px"
+          />
+          <br />
+          <label for="exampleFormControlTextarea1">
+            Example textarea
+          </label>
+          <textarea
+            class="form-control"
+            id="exampleFormControlTextarea1"
+            rows="3"
+            onChange={this.onReviewChange}
+          ></textarea>
+          <br />
+          <button
+            onClick={this.addReview}
+            type="button"
+            class="btn btn-secondary"
+          >
+            Add review
+          </button>
+        </form>
+      </div>
+    </div>)
   }
 
   render() {

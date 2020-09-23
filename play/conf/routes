@@ -22,6 +22,8 @@ DELETE  /api/products/:id               controllers.api.products.ProductControll
 
 
 GET     /api/reviews                    controllers.api.products.ReviewController.getReviews
+GET     /api/reviews/user/:id                controllers.api.products.ReviewController.getReviewByUserAndProduct(id: Int)
+GET     /api/reviews/product/:id                controllers.api.products.ReviewController.getReviewsByProduct(id: Int)
 GET     /api/reviews/:id                controllers.api.products.ReviewController.getReviewById(id: Int)
 POST    /api/reviews                controllers.api.products.ReviewController.createReview
 PUT     /api/reviews           controllers.api.products.ReviewController.updateReview
@@ -46,6 +48,7 @@ GET     /api/basketproducts/user                 controllers.api.basket.BasketPr
 POST    /api/basketproducts/decrease                     controllers.api.basket.BasketProductController.decreaseQuantity
 GET     /api/basketproducts/:id                 controllers.api.basket.BasketProductController.getBasketProductById(id: Int)
 POST    /api/basketproducts                     controllers.api.basket.BasketProductController.insertToBasketProductsOrIncreaseQuantity
+DELETE  /api/basketproducts/user                controllers.api.basket.BasketProductController.deleteBasketProductsByUser
 DELETE  /api/basketproducts/:id                 controllers.api.basket.BasketProductController.deleteBasketProduct(id: Int)
 
 

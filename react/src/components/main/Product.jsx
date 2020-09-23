@@ -32,9 +32,9 @@ function Product(props){
         const user = props.context.userCtx;
         if(user?.token){
            return( <div><button type="button" onClick={addProductToBasket} class="btn btn-primary">Add to cart</button>
-           <Link to="/product/1"> <button type="button" onClick={addProductToBasket} class="btn btn-primary">See details</button></Link></div>)
+           <Link to={`/product/${props.product.id}`}> <button type="button" class="btn btn-primary">See details</button></Link></div>)
         } else {
-            return <center><Link to="/product/1"> <button type="button" onClick={addProductToBasket} class="btn btn-primary">See details</button></Link></center>
+            return <center><Link to={`/product/${props.product.id}`}> <button type="button" class="btn btn-primary">See details</button></Link></center>
         }
     }
     

@@ -27,10 +27,24 @@ class MyOrdersPage extends React.Component {
     render(){
         return (
         <React.Fragment>
-            <h1>My orders</h1>
-            <div className="card-group">
-            {this.state.orders.map(order => <Order order={order} />)}
-            </div>
+            <center><h1>Zamówienia</h1></center><br></br>
+            <table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Koszt</th>
+      <th scope="col">Kupon</th>
+      <th scope="col">Imię i naziwsko</th>
+      <th scope="col">Sposób dostawy</th>
+      <th scope="col">Sposób płatności</th>
+      <th scope="col">Opłacone</th>
+      <th scope="col">Adres</th>
+    </tr>
+  </thead>
+  <tbody>
+  {this.state.orders.map(order => <Order order={order} />)}
+  </tbody>
+</table>
         </React.Fragment>
         )
     }

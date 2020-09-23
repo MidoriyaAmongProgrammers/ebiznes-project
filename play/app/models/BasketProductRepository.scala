@@ -65,6 +65,9 @@ class BasketProductRepository @Inject() (dbConfigProvider: DatabaseConfigProvide
 
   def delete(id: Int): Future[Unit] = db.run(userProduct.filter(_.id === id).delete).map(_ => ())
 
+  def deleteByUser(userId: String): Future[Unit] = db.run(userProduct.filter(_.user === userId).delete).map(_ => ())
+
+
   def update(id: Int, newUserProduct: UserProduct): Future[Unit] = {
     val userProductToUpdate: UserProduct = newUserProduct.copy(id)
     db.run(userProduct.filter(_.id === id).update(userProductToUpdate)).map(_ => ())
