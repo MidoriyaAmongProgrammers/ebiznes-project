@@ -127,7 +127,7 @@ class BasketProducts extends React.Component {
   render() {
     return (
       <React.Fragment>
-        <h1>Basket products</h1>
+        <h1>Produkty w koszyku</h1>
         {this.state.products.map((p) => (
           <BasketProduct
             product={p}

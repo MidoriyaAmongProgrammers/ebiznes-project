@@ -11,6 +11,7 @@ import OrderPage from "./components/order/OrderPage";
 import ProductPage from "./components/product/ProductPage";
 import UserContextProvider from "./context/userContext/UserContextProvider";
 import MyOrdersPage from "./components/myOrders/MyOrdersPage";
+import UserProfile from "./components/profile/UserProfile";
 
 
 function App() {
@@ -28,6 +29,7 @@ function App() {
           <Route path="/myorders" exact component={MyOrdersPage} />
           <Route path="/order" component={OrderPage} />
           <Route path="/product/:id" component={ProductPage} />
+          <Route path="/profile" exact component={UserProfile} />
           <Route path="/" exact component={MainPage} />
           <Route path="/auth/successful" component={AuthSuccessfulPage} />
         </Switch>

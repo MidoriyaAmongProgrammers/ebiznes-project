@@ -31,10 +31,10 @@ function Product(props){
     function RenderAddToBasketButton(){
         const user = props.context.userCtx;
         if(user?.token){
-           return( <div><button type="button" onClick={addProductToBasket} class="btn btn-primary">Add to cart</button>
-           <Link to={`/product/${props.product.id}`}> <button type="button" class="btn btn-primary">See details</button></Link></div>)
+           return( <div><button type="button" onClick={addProductToBasket} class="btn btn-primary">Do koszyka</button>
+           <Link to={`/product/${props.product.id}`}> <button type="button" class="btn btn-primary">Szczegóły</button></Link></div>)
         } else {
-            return <center><Link to={`/product/${props.product.id}`}> <button type="button" class="btn btn-primary">See details</button></Link></center>
+            return <center><Link to={`/product/${props.product.id}`}> <button type="button" class="btn btn-primary">Szczegóły</button></Link></center>
         }
     }
     
@@ -45,8 +45,8 @@ function Product(props){
             <div class="card-body">
                 <h5 class="card-title">{props.product.name}</h5>
                 <ul>
-                    <li className="product-details">Price: {round(props.product.price)}</li>
-                    <li className="product-details">Description: {props.product.description}</li>
+                    <li className="product-details">Cena: {round(props.product.price)}</li>
+                    <li className="product-details">Opis: {props.product.description.substring(0, 25)}</li>
                 </ul>
                 <RenderAddToBasketButton context={props.context}/>
             </div>

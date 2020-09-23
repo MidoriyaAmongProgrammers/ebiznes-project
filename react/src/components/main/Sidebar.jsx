@@ -21,7 +21,7 @@ class Sidebar extends React.Component{
     render(){
         return (
             <nav id="navbar-example3" className="navbar navbar-light bg-light">
-                <a class="navbar-brand" href="#">Categories</a>
+                <a class="navbar-brand" href="#">Kategorie</a>
                 <nav class="nav nav-pills flex-column">
                     {this.state.categories.map(category => <Category name={category.name} id={category.id}
                     filterBySubcategory={this.props.filterBySubcategory} filterByCategory={this.props.filterByCategory}/>)}

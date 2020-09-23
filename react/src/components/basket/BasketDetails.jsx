@@ -26,13 +26,13 @@ class BasketDetails extends React.Component {
   render() {
     return (
       <React.Fragment>
-        <h1>Basket details</h1>
+        <h1>Szczegóły koszyka</h1>
         <form className="border border-secondary rounded summary">
           <div class="form-group">
-            <h2>Summary</h2>
-            <p>Products cost: {this.props.productsCost}</p>
-            <p>Coupons value: {this.props.couponsValue}</p>
-            <p>Total cost: {this.props.totalCost}</p>
+            <h2>Podsumowanie</h2>
+            <p>Koszt produktów: {this.props.productsCost}</p>
+            <p>Wartość kuponu: {this.props.couponsValue}</p>
+            <p>Łączny koszt: {this.props.totalCost}</p>
           </div>
           <Link
             to={{
@@ -47,22 +47,22 @@ class BasketDetails extends React.Component {
             className="summary-button"
           >
             <button type="submit" class="btn btn-lg btn-block basket-submit">
-              Go further
+              Przejdź dalej
             </button>
           </Link>
         </form>
         <form className="align-self-end">
           <div class="form-group">
-            <label htmlFor="exampleInputEmail1">Coupon</label>
+            <label htmlFor="exampleInputEmail1">Kupon</label>
             <input
               onChange={this.onChange}
               name="coupon"
               type="text"
               class="form-control"
-              placeholder="Enter Coupon"
+              placeholder="Wpisz kupon"
             />
             <small class="form-text text-muted">
-              You can iput here your discount code
+              Możesz tu wpisać kupon
             </small>
           </div>
           <button
@@ -70,7 +70,7 @@ class BasketDetails extends React.Component {
             type="button"
             class="btn btn-primary"
           >
-            Submit
+            Potwierdź
           </button>
         </form>
       </React.Fragment>

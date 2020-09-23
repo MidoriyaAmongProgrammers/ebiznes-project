@@ -165,13 +165,13 @@ axios.delete(`http://localhost:9000/api/basketproducts/user`, {
             <div class="row">
                 <div class="col-6">
                 <React.Fragment>
-            <h1>Order details</h1>
+            <h1>Szczegóły zamówienia</h1>
             <form className="border border-secondary rounded summary">
                 <div class="form-group">
-                    <h2>Summary</h2>
-                    <p>Products cost: <b>{this.props.location.state.productsCost}</b></p>
-                    <p>Coupons value: <b>{this.props.location.state.couponsValue}</b></p>
-                    <p>Total cost: <b>{this.props.location.state.value}</b></p> 
+                    <h2>Podsumowanie</h2>
+                    <p>Koszt produktów: <b>{this.props.location.state.productsCost}</b></p>
+                    <p>Wartość kuponu: <b>{this.props.location.state.couponsValue}</b></p>
+                    <p>Łączny koszt: <b>{this.props.location.state.value}</b></p> 
                 </div>
             </form>
         </React.Fragment>
@@ -190,7 +190,7 @@ axios.delete(`http://localhost:9000/api/basketproducts/user`, {
             </div>
             <div class="row">
                 <div class="col-12">
-                    <button onClick={this.submitOrder} type="button" class="btn btn-primary btn-lg btn-block submit-order">Submit your order</button>
+                    <button onClick={this.submitOrder} type="button" class="btn btn-primary btn-lg btn-block submit-order">Złóż zamówienie</button>
                 </div>
             </div>
         </div>)

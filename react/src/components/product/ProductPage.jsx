@@ -140,17 +140,17 @@ class ProductPage extends React.Component {
             ></img>
           </div>
           <div class="col-9">
-            <h3>Description</h3>
+            <h3>Opis</h3>
             <p>{this.state.product.description}</p>
           </div>
         </div>
         <div class="row">
           <div class="col-6">
-            <h1>Reviews</h1>
+            <h1>Opinie</h1>
             {this.state.reviews.map((review) => (
               <div>
                 <p>
-                  <b>Rating: </b>
+                  <b>Ocena: </b>
                   <StarRatings
                     rating={review.rating}
                     starRatedColor="gold"
@@ -158,7 +158,7 @@ class ProductPage extends React.Component {
                     starDimension="20px"
                   />
                   <br />
-                  <b>Review: </b>
+                  <b>Opinia: </b>
                   {review.content} <br />
                 </p>
               </div>

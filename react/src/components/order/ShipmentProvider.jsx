@@ -3,11 +3,11 @@ import React from 'react';
 function ShipmentProvider(props){
     return (
         <div className="border border-secondary rounded shipment-form">
-    <h3 className="text-center">Shipment Provider</h3>
+    <h3 className="text-center">Sposób dostawy</h3>
     <div class="container shipment-form">
     <div class="form-group col">
       <select name="provider" onChange={props.changeListener} id="inputState" class="form-control">
-        <option selected>Choose...</option>
+        <option selected>Wybierz...</option>
         <option>UPS</option>
         <option>Polish Post</option>
         <option>Inpost</option>

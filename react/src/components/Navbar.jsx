@@ -20,7 +20,7 @@ function Navbar(props){
             <Link className="nav-link navbar-brand" to="/"><li>Strona główna</li></Link>
             <Link to="/basket"><li>Koszyk</li></Link>
             <Link to="/myorders"><li>Moje zamówienia</li></Link>
-            <li>Profil użytkownika</li>
+            <Link to="/profile"><li>Profil użytkownika</li></Link>
             <LogInOutNavbarOption context={props.context}/>
         </nav>
     )
